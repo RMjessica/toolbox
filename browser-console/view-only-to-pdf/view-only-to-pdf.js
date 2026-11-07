@@ -135,7 +135,7 @@
     await capture();
     const list = [...pages.values()].sort((a, b) => a.pos - b.pos);
     if (!list.length) return console.warn("Nothing captured yet.");
-    const parts = Math.ceil(list.length / size);
+    const parts = Math.max(1, Math.ceil(list.length / size));
     for (let i = 0; i < parts; i++) {
       const slice = list.slice(i * size, (i + 1) * size);
       const name =
